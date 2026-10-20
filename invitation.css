@@ -2236,3 +2236,127 @@ a {
     }
 }
 
+
+/* =====================================
+   FLOATING ROMANTIC MUSIC PLAYER
+===================================== */
+
+.music-player {
+    position: fixed;
+    right: 22px;
+    bottom: 24px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    direction: ltr;
+}
+
+.music-toggle {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    color: #fffafc;
+    background: linear-gradient(145deg, #a96c85, #71364f);
+    box-shadow:
+        0 6px 22px rgba(113, 54, 79, 0.24),
+        inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 9px 28px rgba(113, 54, 79, 0.32),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.music-toggle:focus-visible {
+    outline: 2px solid #b995a5;
+    outline-offset: 4px;
+}
+
+.music-toggle svg {
+    position: relative;
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+}
+
+.pause-icon {
+    display: none;
+}
+
+.music-player.is-playing .music-icon {
+    display: none;
+}
+
+.music-player.is-playing .pause-icon {
+    display: block;
+}
+
+/* Gentle animated ring while music plays */
+.music-ripple {
+    position: absolute;
+    z-index: -1;
+    inset: -5px;
+    border: 1px solid rgba(169, 108, 133, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.music-player.is-playing .music-ripple {
+    animation: music-ripple 2.4s ease-out infinite;
+}
+
+@keyframes music-ripple {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.65;
+    }
+
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+/* Small elegant label */
+@media (max-width: 600px) {
+    .music-player {
+        right: 15px;
+        bottom: 18px;
+        gap: 8px;
+    }
+
+    .music-toggle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .music-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .music-toggle,
+    .music-ripple {
+        animation: none !important;
+        transition: none !important;
+    }
+}

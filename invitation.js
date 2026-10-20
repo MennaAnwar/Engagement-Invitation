@@ -288,3 +288,56 @@ if (document.readyState === "loading") {
 } else {
     initializeInvitation();
 }
+
+
+/* =====================================
+   BACKGROUND MUSIC CONTROLS
+===================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const player = document.getElementById("music-player");
+    const audio = document.getElementById("background-music");
+    const toggle = document.getElementById("music-toggle");
+    const tooltip = document.getElementById("music-tooltip");
+
+    if (!player || !audio || !toggle || !tooltip) return;
+
+    const updatePlayer = (isPlaying) => {
+        player.classList.toggle("is-playing", isPlaying);
+
+        toggle.setAttribute("aria-pressed", String(isPlaying));
+
+        const label = isPlaying
+            ? "إيقاف الموسيقى مؤقتًا"
+            : "تشغيل الموسيقى";
+
+        toggle.setAttribute("aria-label", label);
+        toggle.setAttribute("title", label);
+
+        tooltip.textContent = isPlaying
+            ? "أوقفوا الموسيقى مؤقتًا"
+            : "شغّلوا أجواء الحب ♡";
+    };
+
+    toggle.addEventListener("click", async () => {
+        if (audio.paused) {
+            try {
+                await audio.play();
+                updatePlayer(true);
+            } catch (error) {
+                updatePlayer(false);
+                tooltip.textContent = "تعذّر التشغيل، حاولوا مرة أخرى";
+                console.error("Background music playback failed:", error);
+            }
+        } else {
+            audio.pause();
+            updatePlayer(false);
+        }
+    });
+
+    audio.addEventListener("play", () => updatePlayer(true));
+    audio.addEventListener("pause", () => updatePlayer(false));
+    audio.addEventListener("ended", () => updatePlayer(false));
+
+    updatePlayer(false);
+});
