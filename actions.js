@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const envelope = document.getElementById("envelope");
     const stamp = document.getElementById("envelopeButton");
@@ -24,15 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
         stamp.disabled = true;
         prompt.disabled = true;
 
-        // Navigate to the invitation page when the animation finishes.
+        // Redirect after the opening animation finishes.
         window.setTimeout(() => {
             window.location.href = "invitation.html";
         }, 1700);
     }
 
-    // Clicking the wax seal opens the invitation.
+    // Allow the visitor to open it manually.
     stamp.addEventListener("click", openInvitation);
-
-    // Clicking the invitation prompt does the same.
     prompt.addEventListener("click", openInvitation);
+
+    // Automatically open the envelope after 3 seconds.
+    window.setTimeout(() => {
+        openInvitation();
+    }, 3000);
 });
