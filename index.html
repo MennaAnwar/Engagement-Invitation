@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#d9b1bd">
+
+    <title>A Little Forever | Engagement Invitation</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Italianno&family=Cairo:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="actions.js" defer></script>
+</head>
+
+<body>
+<main class="stage">
+
+    <div class="envelope" id="envelope">
+
+        <!-- Inner paper -->
+        <div class="envelope-back"></div>
+
+        <!-- Letter inside the envelope -->
+        <article class="letter" aria-hidden="true">
+            <div class="letter-frame">
+                <span class="letter-eyebrow">WITH LOVE & JOY</span>
+
+                <div class="letter-monogram">
+                    M <span>&</span> M
+                </div>
+
+                <div class="letter-rule">
+                    <span>✧</span>
+                </div>
+
+                <p class="letter-copy">A beautiful beginning</p>
+
+                <p class="letter-arabic" lang="ar" dir="rtl">
+                    بداية حكاية تجمع قلبين
+                </p>
+            </div>
+        </article>
+
+        <!-- Main envelope body -->
+        <div class="fold-left"></div>
+        <div class="fold-right"></div>
+        <div class="fold-bottom"></div>
+
+        <!-- Front flap -->
+        <div class="flap">
+            <div class="flap-shine"></div>
+        </div>
+
+        <!-- Fine double-line border -->
+        <div class="foil-frame">
+            <span class="frame-corner corner-tl"></span>
+            <span class="frame-corner corner-tr"></span>
+            <span class="frame-corner corner-bl"></span>
+            <span class="frame-corner corner-br"></span>
+        </div>
+
+        <!-- Engraved botanical ornaments -->
+        <svg class="engraving engraving-left"
+             viewBox="0 0 180 300"
+             fill="none"
+             aria-hidden="true">
+            <g stroke="currentColor" stroke-width=".8">
+                <path d="M12 280 C45 230 12 180 62 130 S92 55 48 18"/>
+                <path d="M34 246 C70 238 83 210 72 182 C48 194 36 215 34 246Z"/>
+                <path d="M55 208 C89 196 105 170 95 148 C73 158 58 179 55 208Z"/>
+                <path d="M57 157 C22 155 9 130 20 110 C43 119 55 137 57 157Z"/>
+                <path d="M76 117 C110 100 114 73 99 57 C82 74 76 94 76 117Z"/>
+                <path d="M57 73 C28 75 15 54 22 37 C41 43 53 56 57 73Z"/>
+                <path d="M35 247 L65 215 M57 207 L91 170 M57 157 L26 122 M76 117 L103 70"/>
+                <path d="M14 279 C56 271 93 283 125 300"/>
+                <path d="M14 266 C42 255 66 257 84 267"/>
+                <circle cx="99" cy="35" r="10"/>
+                <circle cx="99" cy="35" r="5"/>
+            </g>
+        </svg>
+
+        <svg class="engraving engraving-right"
+             viewBox="0 0 180 300"
+             fill="none"
+             aria-hidden="true">
+            <g stroke="currentColor" stroke-width=".8">
+                <path d="M12 280 C45 230 12 180 62 130 S92 55 48 18"/>
+                <path d="M34 246 C70 238 83 210 72 182 C48 194 36 215 34 246Z"/>
+                <path d="M55 208 C89 196 105 170 95 148 C73 158 58 179 55 208Z"/>
+                <path d="M57 157 C22 155 9 130 20 110 C43 119 55 137 57 157Z"/>
+                <path d="M76 117 C110 100 114 73 99 57 C82 74 76 94 76 117Z"/>
+                <path d="M57 73 C28 75 15 54 22 37 C41 43 53 56 57 73Z"/>
+                <path d="M35 247 L65 215 M57 207 L91 170 M57 157 L26 122 M76 117 L103 70"/>
+                <path d="M14 279 C56 271 93 283 125 300"/>
+                <path d="M14 266 C42 255 66 257 84 267"/>
+                <circle cx="99" cy="35" r="10"/>
+                <circle cx="99" cy="35" r="5"/>
+            </g>
+        </svg>
+
+        <!-- Seal: only the seal is clickable -->
+        <button
+            id="envelopeButton"
+            class="seal"
+            type="button"
+            aria-label="Open the engagement invitation">
+
+            <span class="seal-outer">
+                <span class="seal-inner">
+
+                    <svg class="seal-flower"
+                         viewBox="0 0 100 100"
+                         fill="none"
+                         aria-hidden="true">
+                        <g stroke="currentColor" stroke-width=".8">
+                            <circle cx="50" cy="50" r="40"/>
+                            <circle cx="50" cy="50" r="34"/>
+
+                            <ellipse cx="50" cy="34" rx="8" ry="16"/>
+                            <ellipse cx="50" cy="66" rx="8" ry="16"/>
+                            <ellipse cx="34" cy="50" rx="16" ry="8"/>
+                            <ellipse cx="66" cy="50" rx="16" ry="8"/>
+
+                            <ellipse cx="39" cy="39" rx="7" ry="14"
+                                     transform="rotate(-45 39 39)"/>
+                            <ellipse cx="61" cy="39" rx="7" ry="14"
+                                     transform="rotate(45 61 39)"/>
+                            <ellipse cx="39" cy="61" rx="7" ry="14"
+                                     transform="rotate(45 39 61)"/>
+                            <ellipse cx="61" cy="61" rx="7" ry="14"
+                                     transform="rotate(-45 61 61)"/>
+
+                            <circle cx="50" cy="50" r="10"/>
+                            <path d="M50 45 L50 55 M45 50 L55 50"/>
+                        </g>
+                    </svg>
+
+                    <span class="seal-initials">M<span>&</span>M</span>
+                    <span class="seal-est">EST. FOREVER</span>
+                </span>
+            </span>
+        </button>
+
+        <!-- Envelope typography -->
+        <div class="envelope-copy" id="openInstruction">
+            <p class="copy-kicker">A CELEBRATION OF LOVE</p>
+
+            <h1 class="copy-title">Our Forever Begins</h1>
+
+            <p class="copy-arabic" lang="ar" dir="rtl">
+                ومن الحب تبدأ أجمل الحكايات
+            </p>
+
+            <button class="open-prompt" type="button"
+                    id="openPrompt">
+                <span class="prompt-line"></span>
+                <span>UNSEAL YOUR INVITATION</span>
+                <span class="prompt-line"></span>
+            </button>
+        </div>
+
+    </div>
+</main>
+</body>
+</html>
