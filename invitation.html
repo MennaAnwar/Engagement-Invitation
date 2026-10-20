@@ -478,16 +478,15 @@
 
             <audio
                 id="background-music"
+                autoplay
                 loop
                 preload="auto"
-                autoplay
                 playsinline
             >
                 <source
-                    src="music/romantic-music.mp3"
+                    src="{{ asset('music/romantic-music.mp3') }}"
                     type="audio/mpeg"
                 >
-                Your browser does not support audio playback.
             </audio>
 
             <button
