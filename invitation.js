@@ -23,7 +23,7 @@ function getEventDate() {
 }
 
 function formatArabicEventDate(date) {
-    return new Intl.DateTimeFormat("en-GB", {
+    return new Intl.DateTimeFormat("ar-EG", {
         timeZone: EVENT.timeZone,
         weekday: "long",
         day: "numeric",
