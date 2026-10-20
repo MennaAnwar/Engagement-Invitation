@@ -289,23 +289,22 @@ if (document.readyState === "loading") {
     initializeInvitation();
 }
 
-
 /* =====================================
    BACKGROUND MUSIC CONTROLS
 ===================================== */
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const player = document.getElementById("music-player");
     const audio = document.getElementById("background-music");
     const toggle = document.getElementById("music-toggle");
 
-    if (!player || !audio || !toggle) return;
+    if (!audio || !toggle) return;
 
     let userPaused = false;
 
-    const updatePlayer = (isPlaying) => {
-        player.classList.toggle("is-playing", isPlaying);
+    function updatePlayer(isPlaying) {
+        player?.classList.toggle("is-playing", isPlaying);
+
         toggle.setAttribute("aria-pressed", String(isPlaying));
 
         const label = isPlaying
@@ -314,39 +313,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         toggle.setAttribute("aria-label", label);
         toggle.setAttribute("title", label);
+    }
 
-    };
+    async function playMusic() {
+        if (userPaused) return;
 
-    const playMusic = async () => {
         try {
             await audio.play();
             updatePlayer(true);
         } catch (error) {
             updatePlayer(false);
-            console.info(
-                "Autoplay was blocked or the audio could not play.",
-                error
-            );
-        }
-    };
 
-    // Attempt autoplay when the page loads.
+            // Autoplay may be blocked until the visitor
+            // explicitly interacts with the page.
+            console.info("Music playback is waiting for user interaction.");
+        }
+    }
+
+    // Try autoplay when the page loads.
     playMusic();
 
-    // Retry on the first visitor interaction if autoplay was blocked.
-    const startOnInteraction = () => {
+    // Retry when the visitor interacts with the page.
+    function resumeMusic() {
         if (!userPaused && audio.paused) {
             playMusic();
         }
+    }
 
-        document.removeEventListener("pointerdown", startOnInteraction);
-        document.removeEventListener("keydown", startOnInteraction);
-    };
+    document.addEventListener("pointerdown", resumeMusic);
+    document.addEventListener("keydown", resumeMusic);
 
-    document.addEventListener("pointerdown", startOnInteraction);
-    document.addEventListener("keydown", startOnInteraction);
-
-    // Toggle music when the floating button is clicked.
+    // Floating music button.
     toggle.addEventListener("click", async () => {
         if (audio.paused) {
             userPaused = false;
@@ -360,13 +357,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audio.addEventListener("play", () => updatePlayer(true));
     audio.addEventListener("pause", () => updatePlayer(false));
+
+    audio.addEventListener("ended", () => {
+        // Restart the track if it reaches the end.
+        if (!userPaused) {
+            audio.currentTime = 0;
+            playMusic();
+        }
+    });
+
     audio.addEventListener("error", () => {
         updatePlayer(false);
         console.error(
-            "Could not load the music file:",
+            "Music failed to load:",
             audio.currentSrc || "No audio source found"
         );
     });
 
-    updatePlayer(false);
+    updatePlayer(!audio.paused);
 });
