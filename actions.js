@@ -36,5 +36,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Automatically open the envelope after 3 seconds.
     window.setTimeout(() => {
         openInvitation();
-    }, 3000);
+    }, 2000);
 });
