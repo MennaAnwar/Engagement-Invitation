@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="invitation.css">
     <script src="invitation.js" defer></script>
+    
 </head>
 
 <body class="invitation-page">
@@ -103,8 +104,8 @@
             </p>
 
             <p class="intro-description intro-secondary">
-                وجودكم بيننا هو أجمل هدية،
-                ودعواتكم الحلوة هي بداية البركة والفرحة.
+                جودكم معانا يكمل فرحتنا،
+                ودعواتكم من القلب تزيد أيامنا حب وبركة.
             </p>
 
             <div class="luxury-divider" aria-hidden="true">
@@ -143,34 +144,57 @@
             <p class="image-note">♡ حب يجمعنا · وفرحة تجمع أحبابنا ♡</p>
         </section>
 
-        <!-- 03. NAMES -->
-        <section class="names-section section-shell">
-            <p class="eyebrow">أبطال الحكاية</p>
-
-            <div class="name-monogram" aria-hidden="true">
-                <span>M</span>
-                <i>&</i>
-                <span>M</span>
+        <!-- 03. THE COUPLE -->
+        <section class="names-section section-shell" aria-label="The happy couple">
+        
+            <div class="names-luxury-frame" aria-hidden="true">
+                <span class="frame-corner frame-top-left"></span>
+                <span class="frame-corner frame-top-right"></span>
+                <span class="frame-corner frame-bottom-left"></span>
+                <span class="frame-corner frame-bottom-right"></span>
             </div>
-
-            <div class="couple-names" dir="ltr">
-                <h2 class="couple-name">Mohamed</h2>
-                <span class="names-ampersand">&</span>
-                <h2 class="couple-name">M</h2>
+        
+            <div class="names-inner">
+        
+                <p class="names-overline">
+                    TOGETHER WITH LOVE
+                </p>
+        
+                <div class="names-top-ornament" aria-hidden="true">
+                    <span></span>
+                    <i>✧</i>
+                    <span></span>
+                </div>
+        
+                <div class="couple-names" dir="ltr">
+                    <h2 class="couple-name">Mohamed</h2>
+        
+                    <span class="names-ampersand" aria-hidden="true">
+                        &
+                    </span>
+        
+                    <h2 class="couple-name">M</h2>
+                </div>
+        
+                <div class="names-arabic-wrap" lang="ar" dir="rtl">
+                    <div class="arabic-names">
+                        <span>محمد</span>
+                        <span class="arabic-heart" aria-hidden="true">♡</span>
+                        <span>م</span>
+                    </div>
+        
+                    <p class="names-subtitle">
+                        حكاية حبّ، وبداية للأبد
+                    </p>
+                </div>
+        
+                <div class="names-bottom-detail" aria-hidden="true">
+                    <span class="names-detail-line"></span>
+                    <span class="names-detail-diamond"></span>
+                    <span class="names-detail-line"></span>
+                </div>
+        
             </div>
-
-            <div class="arabic-names" lang="ar" dir="rtl">
-                <span>محمد</span>
-                <span class="arabic-heart">♡</span>
-                <span>م</span>
-
-            </div>
-
-            <div class="name-flourish" aria-hidden="true">❦</div>
-
-            <p class="names-subtitle">
-                قلبان جمعهما الحب، وبداية كتبها القدر.
-            </p>
         </section>
 
         <!-- 04. DATE -->
@@ -228,10 +252,6 @@
             <p class="eyebrow">كل ثانية تقرّبنا</p>
             <h2 class="section-title">باقي على فرحتنا</h2>
 
-            <p class="section-description">
-                بنعد الأيام لحد ما نفرح معاكم
-            </p>
-
             <div class="countdown" aria-label="العد التنازلي لخطوبتنا" dir="ltr">
                 <div class="countdown-unit">
                     <span id="count-days" class="count-number">00</span>
@@ -267,7 +287,6 @@
 
         <!-- 06. CALENDAR -->
         <section class="calendar-section section-shell">
-            <p class="eyebrow">علّموا على يومنا</p>
             <h2 class="section-title">موعد محفور في القلب</h2>
 
             <p class="section-description">
@@ -306,12 +325,14 @@
         <section class="venue-section section-shell" id="venue">
 
             <div class="venue-intro">
-                <span class="venue-intro-ornament" aria-hidden="true">✦</span>
-                <p class="eyebrow">يسعدنا حضوركم ومشاركتكم فرحتنا</p>
-                <h2 class="section-title">على موعد مع الحب</h2>
+                <span class="venue-intro-ornament" aria-hidden="true">✧</span>
+            
+                <p class="eyebrow">لحظة ننتظرها بكل الحب</p>
+            
+                <h2 class="section-title">هنا تبدأ حكايتنا</h2>
+            
                 <p class="venue-intro-description">
-                    في مكان له سحره الخاص، وبين أحبابنا،
-                    نبدأ أجمل فصول حكايتنا.
+                    بين أحبابنا، نحتفل ببداية عمرٍ معًا.
                 </p>
             </div>
 
@@ -378,14 +399,15 @@
                 </div>
 
                 <div class="venue-map-frame">
-                    <iframe
-                        id="venue-map"
-                        title="خريطة موقع قاعة ديفا في سابا باشا، الإسكندرية"
-                        src="https://maps.google.com/maps?q=Diva%20Hall%20نادي%20المهندسين%20سابا%20باشا%20الإسكندرية&z=15&output=embed"
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13645.410495785627!2d29.9355015!3d31.2386603!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c4df9c8c05bd%3A0x4ca19a2d61319190!2sEngineers%20Club%20-%20Alexandria!5e0!3m2!1sen!2seg!4v1792512748260!5m2!1sen!2seg" 
+                        width="100%"
+                        height="190"
+                        style="border:0;"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        allowfullscreen
-                    ></iframe>
+                        class="block w-full rounded-xl grayscale-[0.65] contrast-[1.05] transition-all duration-500 group-hover:grayscale-0">
+                    </iframe>
 
                     <div class="map-frame-label">
                         <span aria-hidden="true">⌖</span>
@@ -393,37 +415,6 @@
                     </div>
                 </div>
 
-                <a
-                    id="map-directions"
-                    class="venue-directions-button"
-                    href="https://www.google.com/maps/search/?api=1&query=Diva+Hall+نادي+المهندسين+سابا+باشا+الإسكندرية"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span class="directions-button-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-                            <circle
-                                cx="12"
-                                cy="9"
-                                r="2.5"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-                        </svg>
-                    </span>
-
-                    <span class="directions-button-text">
-                        <strong>اكتشفوا الطريق إلينا</strong>
-                        <small>افتحوا الموقع على خرائط Google</small>
-                    </span>
-
-                    <span class="directions-arrow" aria-hidden="true">↗</span>
-                </a>
 
                 <p class="venue-bottom-note">
                     <span aria-hidden="true">♡</span>

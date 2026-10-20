@@ -352,91 +352,279 @@ a {
     font-weight: 600;
 }
 
-/* NAMES */
+/* ==========================================
+   LUXURY EDITORIAL COUPLE SECTION
+   Rose • Silver • Ivory
+========================================== */
 
 .names-section {
+    --names-rose: #78465a;
+    --names-muted: #a98493;
+    --names-silver: #c9bdc3;
+    --names-ivory: #fffaf9;
+
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    min-height: 470px;
+    padding: clamp(4.5rem, 10vw, 8rem) 1.5rem;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(241, 220, 229, 0.28) 0%,
+            rgba(255, 250, 249, 0) 67%
+        ),
+        var(--names-ivory);
+}
+
+/* Fine inset frame */
+.names-luxury-frame {
+    position: absolute;
+    inset: 18px;
+    z-index: -1;
+    border: 1px solid rgba(185, 155, 169, 0.32);
+    pointer-events: none;
+}
+
+.names-luxury-frame::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(201, 189, 195, 0.35);
+}
+
+/* Minimal frame corners */
+.frame-corner {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    border-color: #b995a5;
+    border-style: solid;
+}
+
+.frame-top-left {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+}
+
+.frame-top-right {
+    top: -1px;
+    right: -1px;
+    border-width: 1px 1px 0 0;
+}
+
+.frame-bottom-left {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 1px 1px;
+}
+
+.frame-bottom-right {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 1px 1px 0;
+}
+
+.names-inner {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin-inline: auto;
     text-align: center;
 }
 
-.name-monogram {
+/* Editorial overline */
+.names-overline {
+    margin: 0 0 2.2rem;
+    color: var(--names-rose);
+    font-family: Arial, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    line-height: 1.8;
+}
+
+/* Silver and rose divider */
+.names-top-ornament {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 13px;
-    width: 112px;
-    height: 112px;
-    margin: 28px auto;
-    border: 1px solid var(--silver);
-    outline: 1px solid rgba(183,110,137,.35);
-    outline-offset: 5px;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #fff, #f6e7ed);
-    box-shadow: 0 10px 30px rgba(77,37,56,.09);
-    color: var(--rose-dark);
-    font-family: "Cormorant Garamond", serif;
-    font-size: 2rem;
+    gap: 14px;
+    margin-bottom: 2.1rem;
 }
 
-.name-monogram i {
-    color: var(--silver);
-    font-size: 1.35rem;
+.names-top-ornament span {
+    width: clamp(35px, 7vw, 65px);
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--names-silver)
+    );
+}
+
+.names-top-ornament span:last-child {
+    transform: rotate(180deg);
+}
+
+.names-top-ornament i {
+    color: var(--names-muted);
+    font-size: 14px;
     font-style: normal;
 }
 
+/* Main name typography */
 .couple-names {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
-    gap: clamp(12px, 3vw, 28px);
-    margin: 20px auto;
+    flex-wrap: wrap;
+    column-gap: clamp(12px, 2.5vw, 30px);
+    row-gap: 8px;
 }
 
 .couple-name {
     margin: 0;
-    color: var(--rose-dark);
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(3.5rem, 10vw, 6.7rem);
-    font-weight: 500;
-    line-height: 1.15;
-    text-shadow: 0 7px 28px rgba(113,54,79,.12);
+    color: var(--names-rose);
+    font-family:
+        "Cormorant Garamond",
+        "Times New Roman",
+        serif;
+    font-size: clamp(3.5rem, 8.5vw, 7rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
 }
 
 .names-ampersand {
-    color: #a9a1b6;
-    font-family: "Italianno", cursive;
-    font-size: clamp(3rem, 7vw, 4.5rem);
+    position: relative;
+    top: -0.12em;
+    color: #b997a6;
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Arabic names */
+.names-arabic-wrap {
+    margin-top: 2rem;
 }
 
 .arabic-names {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(15px, 4vw, 32px);
-    margin-top: 24px;
-    color: var(--ink);
-    font-family: "Amiri", serif;
-    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    gap: 1.2rem;
+    color: #765463;
+    font-family:
+        "Amiri",
+        "Noto Naskh Arabic",
+        serif;
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 400;
 }
 
 .arabic-heart {
-    color: var(--rose);
-    font-family: sans-serif;
-    font-size: 1.8rem;
-}
-
-.name-flourish {
-    margin-top: 14px;
-    color: var(--rose);
-    font-size: 2rem;
+    color: #bc91a2;
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
 }
 
 .names-subtitle {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: 1rem;
+    margin: 1.1rem 0 0;
+    color: #99828c;
+    font-family:
+        "Amiri",
+        "Noto Naskh Arabic",
+        serif;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    font-weight: 400;
+    line-height: 1.9;
 }
 
+/* Bottom signature detail */
+.names-bottom-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 2.3rem;
+}
+
+.names-detail-line {
+    width: 30px;
+    height: 1px;
+    background: #d6c6cd;
+}
+
+.names-detail-diamond {
+    width: 5px;
+    height: 5px;
+    border: 1px solid #b995a5;
+    transform: rotate(45deg);
+}
+
+/* Responsive refinement */
+@media (max-width: 600px) {
+    .names-section {
+        min-height: 390px;
+        padding: 4.5rem 1.4rem;
+    }
+
+    .names-luxury-frame {
+        inset: 12px;
+    }
+
+    .names-luxury-frame::before {
+        inset: 4px;
+    }
+
+    .names-overline {
+        margin-bottom: 1.8rem;
+        font-size: 0.55rem;
+        letter-spacing: 0.25em;
+    }
+
+    .names-top-ornament {
+        margin-bottom: 1.8rem;
+    }
+
+    .couple-names {
+        column-gap: 10px;
+    }
+
+    .couple-name {
+        font-size: clamp(2.8rem, 11vw, 4.2rem);
+    }
+
+    .names-ampersand {
+        font-size: 2.2rem;
+    }
+
+    .names-arabic-wrap {
+        margin-top: 1.7rem;
+    }
+
+    .names-bottom-detail {
+        margin-top: 1.8rem;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .names-section,
+    .names-section * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
 /* DATE CARD */
 
 .date-card {
