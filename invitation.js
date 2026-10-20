@@ -289,6 +289,7 @@ if (document.readyState === "loading") {
     initializeInvitation();
 }
 
+
 /* =====================================
    BACKGROUND MUSIC CONTROLS
 ===================================== */
@@ -301,6 +302,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!audio || !toggle) return;
 
     let userPaused = false;
+    let started = false;
+
+    audio.volume = 0.7;
+    audio.loop = true;
 
     function updatePlayer(isPlaying) {
         player?.classList.toggle("is-playing", isPlaying);
@@ -316,32 +321,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function playMusic() {
-        if (userPaused) return;
+        if (userPaused || !audio.paused) return;
 
         try {
             await audio.play();
+            started = true;
             updatePlayer(true);
         } catch (error) {
+            // Browser autoplay restrictions may prevent playback.
             updatePlayer(false);
-
-            // Autoplay may be blocked until the visitor
-            // explicitly interacts with the page.
-            console.info("Music playback is waiting for user interaction.");
         }
     }
 
-    // Try autoplay when the page loads.
+    // Attempt autoplay immediately.
+    audio.autoplay = true;
     playMusic();
 
-    // Retry when the visitor interacts with the page.
-    function resumeMusic() {
-        if (!userPaused && audio.paused) {
+    // Retry on the first visitor interaction.
+    function startOnInteraction() {
+        if (!started && !userPaused) {
             playMusic();
         }
     }
 
-    document.addEventListener("pointerdown", resumeMusic);
-    document.addEventListener("keydown", resumeMusic);
+    document.addEventListener(
+        "pointerdown",
+        startOnInteraction,
+        { passive: true }
+    );
+
+    document.addEventListener(
+        "keydown",
+        startOnInteraction
+    );
 
     // Floating music button.
     toggle.addEventListener("click", async () => {
@@ -355,22 +367,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    audio.addEventListener("play", () => updatePlayer(true));
-    audio.addEventListener("pause", () => updatePlayer(false));
+    audio.addEventListener("play", () => {
+        started = true;
+        updatePlayer(true);
+    });
 
-    audio.addEventListener("ended", () => {
-        // Restart the track if it reaches the end.
-        if (!userPaused) {
-            audio.currentTime = 0;
-            playMusic();
-        }
+    audio.addEventListener("pause", () => {
+        updatePlayer(false);
     });
 
     audio.addEventListener("error", () => {
         updatePlayer(false);
         console.error(
             "Music failed to load:",
-            audio.currentSrc || "No audio source found"
+            audio.currentSrc
         );
     });
 
