@@ -1,5 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+    // -----------------------------------------
+    // Elements
+    // -----------------------------------------
     const envelopeScreen = document.getElementById("envelope-screen");
     const invitationScreen = document.getElementById("invitation-screen");
     const envelope = document.getElementById("envelope");
@@ -11,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let opening = false;
     let userPausedMusic = false;
+    let musicStarted = false;
 
     // -----------------------------------------
-    // Music player UI
+    // Update player UI
     // -----------------------------------------
     function updatePlayer() {
         if (!audio) return;
@@ -34,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -----------------------------------------
-    // Initialize audio WITHOUT autoplay
+    // Initialize audio
     // -----------------------------------------
     if (audio) {
         audio.pause();
@@ -43,7 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.volume = 0.7;
         audio.autoplay = false;
 
-        audio.addEventListener("play", updatePlayer);
+        audio.addEventListener("play", () => {
+            musicStarted = true;
+            updatePlayer();
+        });
+
         audio.addEventListener("pause", updatePlayer);
         audio.addEventListener("volumechange", updatePlayer);
 
@@ -58,67 +66,113 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -----------------------------------------
-    // Play music from an actual user interaction
+    // Play music
     // -----------------------------------------
     async function playMusic() {
-        if (!audio) return false;
+        if (!audio || userPausedMusic || !audio.paused) {
+            return false;
+        }
 
         try {
-            // Call play() directly from the click interaction.
             audio.muted = false;
-
             await audio.play();
 
+            musicStarted = true;
             updatePlayer();
+
             return true;
         } catch (error) {
-            console.warn("Music playback failed:", error.name);
+            // Keep listening for further interactions.
+            console.info(
+                "Music playback attempt failed:",
+                error.name
+            );
+
             updatePlayer();
             return false;
         }
     }
 
     // -----------------------------------------
-    // Floating music button: play / pause
+    // Retry music on ANY user interaction
+    // -----------------------------------------
+    function handleInteraction(event) {
+        if (!audio || userPausedMusic || !audio.paused) {
+            return;
+        }
+
+        // Ignore events generated programmatically.
+        if (event && !event.isTrusted) {
+            return;
+        }
+
+        // Attempt playback directly from the interaction.
+        playMusic();
+    }
+
+    const interactionEvents = [
+        "pointerdown",
+        "touchstart",
+        "click",
+        "scroll",
+        "wheel",
+        "keydown",
+        "pointermove",
+        "touchmove"
+    ];
+
+    interactionEvents.forEach((eventName) => {
+        document.addEventListener(
+            eventName,
+            handleInteraction,
+            {
+                passive: true,
+                capture: true
+            }
+        );
+    });
+
+    // -----------------------------------------
+    // Music toggle button
     // -----------------------------------------
     toggle?.addEventListener("click", async (event) => {
         event.stopPropagation();
 
         if (!audio) return;
 
-        if (audio.paused || audio.ended) {
-            userPausedMusic = false;
-            await playMusic();
-        } else {
+        if (!audio.paused) {
             userPausedMusic = true;
             audio.pause();
             updatePlayer();
+        } else {
+            userPausedMusic = false;
+            await playMusic();
         }
     });
 
     // -----------------------------------------
-    // Open invitation ONLY when the seal is clicked
+    // Open invitation
     // -----------------------------------------
-    stamp?.addEventListener("click", (event) => {
-        event.preventDefault();
+    function openInvitation(event) {
+        event?.preventDefault();
 
         if (opening) return;
 
         opening = true;
 
-        // Start music immediately from the seal click.
-        // Do not await before initiating the opening animation.
-        if (!userPausedMusic && audio) {
+        // A real seal click also attempts to start music.
+        if (event && audio && !userPausedMusic) {
             playMusic();
         }
 
         envelope?.classList.add("opening");
-        stamp.classList.add("is-opening");
+        stamp?.classList.add("is-opening");
 
-        stamp.disabled = true;
-        stamp.setAttribute("aria-disabled", "true");
+        if (stamp) {
+            stamp.disabled = true;
+            stamp.setAttribute("aria-disabled", "true");
+        }
 
-        // Wait for the envelope animation.
         window.setTimeout(() => {
             if (envelopeScreen) {
                 envelopeScreen.hidden = true;
@@ -135,10 +189,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "instant"
             });
         }, 2500);
-    });
+    }
 
-    // No click handler for openPrompt.
-    // It must not open the invitation.
+    // Manual opening
+    stamp?.addEventListener("click", openInvitation);
+
+    // Automatic opening after two seconds
+    window.setTimeout(() => {
+        openInvitation();
+    }, 2000);
 
     updatePlayer();
 });
