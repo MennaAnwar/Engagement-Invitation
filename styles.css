@@ -671,17 +671,28 @@ button:focus-visible {
     color: #f4dfe6;
 }
 
+
 .seal-est {
     position: relative;
     z-index: 1;
 
-    margin-top: 5px;
+    margin-top: 8px;
 
-    font-family: "Cormorant Garamond", serif;
-    font-size: 8px;
-    letter-spacing: 2px;
+    font-family: "Cairo", sans-serif;
+    font-size: clamp(15px, 2vw, 19px);
+    font-weight: 700;
+    letter-spacing: 0;
 
-    color: rgba(255, 247, 250, .85);
+    color: #fff;
+
+    text-shadow:
+        0 1px 2px rgba(90, 35, 56, 0.75),
+        0 0 5px rgba(90, 35, 56, 0.25);
+
+    white-space: nowrap;
+    line-height: 1.4;
+
+    pointer-events: none;
 }
 
 /* Wax seal ripple */
