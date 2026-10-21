@@ -64,6 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "keydown",
             startMusicOnInteraction
         );
+
+        // Remove new scroll listeners
+        window.removeEventListener(
+            "scroll",
+            startMusicOnInteraction
+        );
+
+        window.removeEventListener(
+            "wheel",
+            startMusicOnInteraction
+        );
     }
 
     // -----------------------------------------
@@ -74,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Unmute upon first user touch/click gesture
+        // Unmute upon first user touch/click/scroll gesture
         if (audio.muted) {
             audio.muted = false;
         }
@@ -121,6 +132,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener(
             "keydown",
             startMusicOnInteraction
+        );
+
+        // ADDED: Capture passive user scroll movements 
+        window.addEventListener(
+            "scroll",
+            startMusicOnInteraction,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "wheel",
+            startMusicOnInteraction,
+            { passive: true }
         );
 
         audio.addEventListener("play", updatePlayer);
