@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Italianno&family=Cairo:wght@400;500&display=swap"
           rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=11">
-    <script src="actions.js" defer></script>
+    <link rel="stylesheet" href="invitation.css">
+    <link rel="stylesheet" href="styles.css?v=12">
 </head>
-
-<body>
+<body class="invitation-page spa-invitation">
+<div id="envelope-screen">
 <main class="stage">
 
     <div class="envelope" id="envelope">
@@ -169,5 +168,541 @@
 
     </div>
 </main>
+</div>
+<div id="invitation-screen" hidden>
+<!-- Floating hearts -->
+    <div class="heart-layer" aria-hidden="true">
+        <span class="floating-heart h1">♡</span>
+        <span class="floating-heart h2">♥</span>
+        <span class="floating-heart h3">♡</span>
+        <span class="floating-heart h4">♥</span>
+        <span class="floating-heart h5">♡</span>
+        <span class="floating-heart h6">♥</span>
+        <span class="floating-heart h7">♡</span>
+        <span class="floating-heart h8">♥</span>
+        <span class="floating-heart h9">♡</span>
+        <span class="floating-heart h10">♥</span>
+        <span class="floating-heart h11">♡</span>
+        <span class="floating-heart h12">♥</span>
+        
+        <!-- Floating rose petals -->
+        <span class="floating-petal petal-1" aria-hidden="true">❀</span>
+        <span class="floating-petal petal-2" aria-hidden="true">❋</span>
+        <span class="floating-petal petal-3" aria-hidden="true">✿</span>
+        <span class="floating-petal petal-4" aria-hidden="true">❀</span>
+        <span class="floating-petal petal-5" aria-hidden="true">✿</span>
+        <span class="floating-petal petal-6" aria-hidden="true">❋</span>
+
+        <!-- Delicate drifting flowers -->
+        <span class="floating-flower flower-1" aria-hidden="true">✿</span>
+        <span class="floating-flower flower-2" aria-hidden="true">❀</span>
+        <span class="floating-flower flower-3" aria-hidden="true">❁</span>
+        <span class="floating-flower flower-4" aria-hidden="true">✿</span>
+
+        <!-- Silver and rose-gold twinkles -->
+        <span class="floating-twinkle twinkle-1" aria-hidden="true">✧</span>
+        <span class="floating-twinkle twinkle-2" aria-hidden="true">✦</span>
+        <span class="floating-twinkle twinkle-3" aria-hidden="true">✧</span>
+        <span class="floating-twinkle twinkle-4" aria-hidden="true">✦</span>
+        <span class="floating-twinkle twinkle-5" aria-hidden="true">✧</span>
+        <span class="floating-twinkle twinkle-6" aria-hidden="true">✦</span>
+
+        <!-- Elegant engagement rings -->
+        <div class="floating-rings rings-1" aria-hidden="true">
+            <span class="ring-band ring-band-one"></span>
+            <span class="ring-band ring-band-two"></span>
+            <span class="ring-diamond"></span>
+            <span class="ring-sparkle">✧</span>
+        </div>
+
+        <div class="floating-rings rings-2" aria-hidden="true">
+            <span class="ring-band ring-band-one"></span>
+            <span class="ring-band ring-band-two"></span>
+            <span class="ring-diamond"></span>
+            <span class="ring-sparkle">✦</span>
+        </div>
+
+    </div>
+
+    <main class="invitation-content">
+
+        <!-- Decorative top ornament -->
+        <div class="top-ornament" aria-hidden="true">
+            <span class="ornament-line"></span>
+            <span class="ornament-flower">✿</span>
+            <span class="ornament-heart">♡</span>
+            <span class="ornament-flower">✿</span>
+            <span class="ornament-line"></span>
+        </div>
+
+        <!-- 01. INTRODUCTION -->
+        <section class="intro-section section-shell">
+            <p class="eyebrow">بكل الحب والفرحة</p>
+
+            <h1 class="intro-title">
+                حكاية جديدة
+                <br>
+                <span>وبداية للعمر كله</span>
+            </h1>
+
+            <p class="intro-description">
+                هناك لحظات لا تشبه غيرها،
+                وفرحة لا تكتمل إلا بوجود من نحب.
+                يسعدنا أن ندعوكم لتشاركونا بداية حكايتنا،
+                في يوم سيظل ذكرى جميلة في قلوبنا.
+            </p>
+
+            <p class="intro-description intro-secondary">
+                وجودكم معانا يكمل فرحتنا،
+                ودعواتكم من القلب تزيد أيامنا حب وبركة.
+            </p>
+
+            <div class="luxury-divider" aria-hidden="true">
+                <span></span><b>♡</b><span></span>
+            </div>
+
+            <p class="intro-signature">فرحتنا بوجودكم تكمل</p>
+        </section>
+
+        <!-- 02. HERO IMAGE -->
+        <section class="image-section section-shell" aria-label="صورة رومانسية لخواتم الخطوبة والزهور">
+            <div class="image-frame">
+                <div class="image-inner">
+                    <img
+                        class="rings-image"
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=90"
+                        alt="أجواء رومانسية من الورود وتفاصيل الاحتفال بالحب"
+                        fetchpriority="high"
+                    >
+
+                    <div class="image-overlay"></div>
+
+                    <div class="image-caption">
+                        <span class="caption-arabic">حفل خطوبتنا</span>
+                        <span class="caption-script" dir="ltr">Forever starts here</span>
+                        <span class="caption-small" dir="ltr">A BEAUTIFUL BEGINNING</span>
+                    </div>
+                </div>
+
+                <span class="frame-flower flower-tl" aria-hidden="true">✿</span>
+                <span class="frame-flower flower-tr" aria-hidden="true">❀</span>
+                <span class="frame-flower flower-bl" aria-hidden="true">❀</span>
+                <span class="frame-flower flower-br" aria-hidden="true">✿</span>
+            </div>
+
+            <p class="image-note">♡ حب يجمعنا · وفرحة تجمع أحبابنا ♡</p>
+        </section>
+
+        <!-- 03. THE COUPLE -->
+        <section class="names-section section-shell" aria-label="The happy couple">
+        
+            <div class="names-luxury-frame" aria-hidden="true">
+                <span class="frame-corner frame-top-left"></span>
+                <span class="frame-corner frame-top-right"></span>
+                <span class="frame-corner frame-bottom-left"></span>
+                <span class="frame-corner frame-bottom-right"></span>
+            </div>
+        
+            <div class="names-inner">
+        
+                <p class="names-overline">
+                    TOGETHER WITH LOVE
+                </p>
+        
+                <div class="names-top-ornament" aria-hidden="true">
+                    <span></span>
+                    <i>✧</i>
+                    <span></span>
+                </div>
+        
+                <div class="couple-names" dir="ltr">
+                    <h2 class="couple-name">Mohamed</h2>
+        
+                    <span class="names-ampersand" aria-hidden="true">
+                        &
+                    </span>
+        
+                    <h2 class="couple-name">M</h2>
+                </div>
+        
+                <div class="names-arabic-wrap" lang="ar" dir="rtl">
+                    <div class="arabic-names">
+                        <span>محمد</span>
+                        <span class="arabic-heart" aria-hidden="true">♡</span>
+                        <span>م</span>
+                    </div>
+        
+                    <p class="names-subtitle">
+                        حكاية حبّ، وبداية للأبد
+                    </p>
+                </div>
+        
+                <div class="names-bottom-detail" aria-hidden="true">
+                    <span class="names-detail-line"></span>
+                    <span class="names-detail-diamond"></span>
+                    <span class="names-detail-line"></span>
+                </div>
+        
+            </div>
+        </section>
+
+        <!-- 04. DATE -->
+        <section class="date-section section-shell">
+            <h2 class="section-title">موعدنا مع أجمل لحظة</h2>
+
+            <p class="section-description">
+                مستنيين اليوم ده بكل الشوق والحب
+            </p>
+
+            <div class="date-card">
+                <span class="card-corner corner-top-right" aria-hidden="true">❦</span>
+                <span class="card-corner corner-top-left" aria-hidden="true">❦</span>
+                <span class="card-corner corner-bottom-right" aria-hidden="true">❦</span>
+                <span class="card-corner corner-bottom-left" aria-hidden="true">❦</span>
+
+                <p class="date-weekday" id="event-weekday">الجمعة</p>
+
+                <div class="date-main" dir="ltr">
+                    <span class="date-day" id="event-day">06</span>
+
+                    <div class="date-month-year">
+                        <span id="event-month">NOVEMBER</span>
+                        <span id="event-year">2026</span>
+                    </div>
+                </div>
+
+                <p class="date-arabic-full" id="event-date-arabic">
+                    الجمعة، ٦ نوفمبر ٢٠٢٦
+                </p>
+
+                <div class="date-rule">
+                    <span>♡</span>
+                </div>
+
+                <div class="time-display">
+                    <span class="time-icon" aria-hidden="true">◷</span>
+                    <div>
+                        <span class="time-label">موعد الحفل</span>
+                        <strong id="event-time">الساعة ٧ مساءً</strong>
+                    </div>
+                </div>
+
+                <p class="date-note">
+                    حضوركم هيخلّي اليوم أحلى بكتير
+                </p>
+            </div>
+        </section>
+
+        <!-- 05. COUNTDOWN -->
+        <section class="countdown-section section-shell">
+            <div class="section-flower" aria-hidden="true">❀</div>
+
+            <p class="eyebrow">كل ثانية تقرّبنا</p>
+            <h2 class="section-title">باقي على فرحتنا</h2>
+
+            <div class="countdown" aria-label="العد التنازلي لخطوبتنا" dir="ltr">
+                <div class="countdown-unit">
+                    <span id="count-days" class="count-number">00</span>
+                    <span class="count-label">يوم</span>
+                </div>
+
+                <span class="count-separator">:</span>
+
+                <div class="countdown-unit">
+                    <span id="count-hours" class="count-number">00</span>
+                    <span class="count-label">ساعة</span>
+                </div>
+
+                <span class="count-separator">:</span>
+
+                <div class="countdown-unit">
+                    <span id="count-minutes" class="count-number">00</span>
+                    <span class="count-label">دقيقة</span>
+                </div>
+
+                <span class="count-separator">:</span>
+
+                <div class="countdown-unit">
+                    <span id="count-seconds" class="count-number">00</span>
+                    <span class="count-label">ثانية</span>
+                </div>
+            </div>
+
+            <p id="countdown-message" class="countdown-message" aria-live="polite">
+                مستنيينكم تشاركونا أجمل يوم ♡
+            </p>
+        </section>
+
+        <!-- 06. CALENDAR -->
+        <section class="calendar-section section-shell">
+            <h2 class="section-title">موعد محفور في القلب</h2>
+
+            <p class="section-description">
+                يوم ٦ نوفمبر، يوم حكايتنا الجديدة
+            </p>
+
+            <div class="calendar-card">
+                <div class="calendar-top">
+                    <span class="calendar-flower" aria-hidden="true">❀</span>
+
+                    <div class="calendar-heading">
+                        <p class="calendar-kicker">يوم فرحتنا</p>
+                        <h3 id="calendar-month-year">نوفمبر ٢٠٢٦</h3>
+                    </div>
+
+                    <span class="calendar-flower" aria-hidden="true">❀</span>
+                </div>
+
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Created by invitation.js -->
+                </div>
+
+                <div class="calendar-legend">
+                    <span class="legend-heart" aria-hidden="true">♥</span>
+                    <span>يوم خطوبتنا — ٦ نوفمبر</span>
+                </div>
+
+                <p class="calendar-bottom-note">
+                    اليوم ده ليه مكانة خاصة في قلوبنا ♡
+                </p>
+            </div>
+        </section>
+
+
+        <!-- 07. LUXURY VENUE -->
+        <section class="venue-section section-shell" id="venue">
+
+            <div class="venue-intro">
+                <span class="venue-intro-ornament" aria-hidden="true">✧</span>
+            
+                <p class="eyebrow">لحظة ننتظرها بكل الحب</p>
+            
+                <h2 class="section-title">هنا تبدأ حكايتنا</h2>
+            
+                <p class="venue-intro-description">
+                    بين أحبابنا، نحتفل ببداية عمرٍ معًا.
+                </p>
+            </div>
+
+            <div class="venue-luxury-card">
+
+                <!-- Decorative floral frame -->
+                <div class="venue-card-top">
+                    <span class="venue-floral" aria-hidden="true">❧</span>
+                    <span class="venue-top-heart" aria-hidden="true">♡</span>
+                    <span class="venue-floral venue-floral-mirror" aria-hidden="true">❧</span>
+                </div>
+
+                <p class="venue-overline">THE CELEBRATION</p>
+
+                <h3 id="venue-name" class="venue-luxury-name">قاعة ديفا</h3>
+
+                <p class="venue-luxury-english" dir="ltr">Diva Hall</p>
+
+                <div class="venue-luxury-divider" aria-hidden="true">
+                    <span></span>
+                    <b>✧</b>
+                    <span></span>
+                </div>
+
+                <div class="venue-location-details">
+                    <div class="venue-detail-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                            <circle
+                                cx="12"
+                                cy="10"
+                                r="2.5"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                    </div>
+
+                    <p class="venue-address" lang="ar" dir="rtl">
+                        نادي المهندسين
+                        <span>سابا باشا · الإسكندرية</span>
+                        <span>على البحر</span>
+                    </p>
+                </div>
+
+                <div class="venue-event-info">
+                    <div class="venue-info-item">
+                        <span class="venue-info-symbol" aria-hidden="true">♡</span>
+                        <span class="venue-info-label">اليوم</span>
+                        <strong id="venue-date-time">
+                            الجمعة، ٦ نوفمبر ٢٠٢٦ · الساعة ٧ مساءً
+                        </strong>
+                    </div>
+                </div>
+
+                <div class="venue-map-heading">
+                    <span></span>
+                    <p>كيف تصلون إلينا؟</p>
+                    <span></span>
+                </div>
+
+                <div class="venue-map-frame">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13645.410495785627!2d29.9355015!3d31.2386603!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c4df9c8c05bd%3A0x4ca19a2d61319190!2sEngineers%20Club%20-%20Alexandria!5e0!3m2!1sen!2seg!4v1792512748260!5m2!1sen!2seg" 
+                        width="100%"
+                        height="190"
+                        style="border:0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="block w-full rounded-xl grayscale-[0.65] contrast-[1.05] transition-all duration-500 group-hover:grayscale-0">
+                    </iframe>
+
+                    <div class="map-frame-label">
+                        <span aria-hidden="true">⌖</span>
+                        <span>الإسكندرية · سابا باشا</span>
+                    </div>
+                </div>
+
+
+                <p class="venue-bottom-note">
+                    <span aria-hidden="true">♡</span>
+                    وجودكم هو أجمل ما في يومنا
+                    <span aria-hidden="true">♡</span>
+                </p>
+
+                <div class="venue-card-bottom-ornament" aria-hidden="true">
+                    ❧ &nbsp; ✧ &nbsp; ❧
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 08. CLOSING -->
+        <section class="closing-section section-shell">
+            <div class="closing-floral" aria-hidden="true">
+                <span>❀</span>
+                <span>♡</span>
+                <span>❀</span>
+            </div>
+
+            <p class="eyebrow">فرحتنا بوجودكم تكمل</p>
+
+            <h2 class="closing-title">
+                مكانكم في القلب
+                <br>
+                <span>قبل ما يكون في القاعة</span>
+            </h2>
+
+            <p class="closing-message">
+                مستنيين ضحكتكم، وفرحتكم، ودعواتكم الحلوة.
+                وجودكم وسطنا هيخلّي اليوم أجمل،
+                ويخلّي بداية حكايتنا ذكرى نفضل نفتكرها بكل حب.
+            </p>
+
+            <p class="closing-arabic" lang="ar" dir="rtl">
+                يا رب تفضل بيوتنا عامرة بالفرح،
+                وقلوبنا دايمًا مجتمعة على المحبة.
+                نتمنى تنورونا وتشاركونا يومنا المميز.
+            </p>
+
+            <div class="closing-heart" aria-hidden="true">♡</div>
+
+            <p class="closing-signature">بكل الحب</p>
+
+            <p class="closing-names" dir="ltr">Mohamed & M</p>
+            <p class="closing-names-arabic" lang="ar" dir="rtl">  محمد & م</p>
+
+            <div class="luxury-divider closing-divider" aria-hidden="true">
+                <span></span><b>❀</b><span></span>
+            </div>
+
+            <p class="closing-footer">بداية حكاية جميلة · ٢٠٢٦</p>
+        </section>
+
+
+
+
+
+
+    </main>
+</div>
+
+        <!-- Floating Background Music Player -->
+        <div class="music-player" id="music-player">
+
+            <audio
+                id="background-music"
+                loop
+                preload="auto"
+                autoplay
+                playsinline
+                muted
+            >
+                <source
+                    src="music/romantic-music.mp3"
+                    type="audio/mpeg"
+                >
+                Your browser does not support audio playback.
+            </audio>
+
+            <button
+                type="button"
+                class="music-toggle"
+                id="music-toggle"
+                aria-label="تشغيل الموسيقى"
+                aria-pressed="false"
+                title="تشغيل الموسيقى"
+            >
+                <!-- Music note -->
+                <svg
+                    class="music-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M9 18V5l12-2v13"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                    <circle
+                        cx="6" cy="18" r="3"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    />
+                    <circle
+                        cx="18" cy="16" r="3"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    />
+                </svg>
+
+                <!-- Pause icon -->
+                <svg
+                    class="pause-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M9 5v14M15 5v14"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                    />
+                </svg>
+
+                <span class="music-ripple" aria-hidden="true"></span>
+            </button>
+
+        </div>
+
+    <script src="actions.js" defer></script>
+    <script src="invitation.js" defer></script>
+
 </body>
 </html>

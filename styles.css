@@ -37,7 +37,6 @@ html {
 body {
     min-height: 100vh;
     min-height: 100dvh;
-    overflow: hidden;
 
     background: var(--rose);
     font-family: "Cormorant Garamond", serif;
@@ -1075,3 +1074,5 @@ button:focus-visible {
         animation: none;
     }
 }
+
+#invitation-screen[hidden] { display: none !important; }
